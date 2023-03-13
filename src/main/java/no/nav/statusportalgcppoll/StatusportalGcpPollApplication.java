@@ -39,7 +39,7 @@ public class StatusportalGcpPollApplication {
 
 	}
 	private static void postStatus() throws Exception {
-		URL url = new URL (portalApiUrl + "/rest/ServiceStatus");
+		URL url = new URL (portalApiUrl + "/rest/Dashboard");
 		HttpURLConnection con = (HttpURLConnection)url.openConnection();
 		con.setRequestMethod("POST");
 		con.setRequestProperty("Content-Type", "application/json");
@@ -49,7 +49,7 @@ public class StatusportalGcpPollApplication {
 		con.setRequestProperty("Accept", "application/json");
 		con.setDoOutput(true);
 		UUID uuid = UUID.randomUUID();
-		String jsonInputString = "{\"serviceId\":\""+uuid.toString()+"\", \"status\": \"ISSUE\"}";
+		String jsonInputString = "{\"name\": \"PollingDashboard\"}";
 		try(OutputStream os = con.getOutputStream()) {
 			byte[] input = jsonInputString.getBytes("utf-8");
 			os.write(input, 0, input.length);
