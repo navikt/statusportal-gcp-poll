@@ -15,8 +15,8 @@ import java.util.UUID;
 @SpringBootApplication
 public class StatusportalGcpPollApplication {
 
-	static String portalApiUrl = "http://localhost:3005";
-//	static String portalApiUrl =  "https://status-api.dev.nav.no";
+//	static String portalApiUrl = "http://localhost:3005";
+	static String portalApiUrl =  "https://status-api.intern.dev.nav.no";
 
 	public static void main(String[] args) {
 
