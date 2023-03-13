@@ -22,4 +22,4 @@ WORKDIR /adevguide
 
 COPY --from=maven target/statusportal-gcp-poll-0.0.1-SNAPSHOT.jar ./statusportal-gcp-poll.jar
 
-CMD ["java", "-jar", "./on-prem-status-poll.jar"]
+CMD ["java", "-jar", "./statusportal-gcp-poll.jar"]
