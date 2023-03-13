@@ -15,6 +15,9 @@ import java.util.UUID;
 @SpringBootApplication
 public class StatusportalGcpPollApplication {
 
+	static String portalApiUrl = "http://localhost:3005";
+//	static String portalApiUrl =  "https://status-api.dev.nav.no";
+
 	public static void main(String[] args) {
 
 		SpringApplication.run(StatusportalGcpPollApplication.class, args);
@@ -36,13 +39,13 @@ public class StatusportalGcpPollApplication {
 
 	}
 	private static void postStatus() throws Exception {
-		URL url = new URL ("https://status-api.dev.nav.no/rest/ServiceStatus");
+		URL url = new URL (portalApiUrl + "/rest/ServiceStatus");
 		HttpURLConnection con = (HttpURLConnection)url.openConnection();
 		con.setRequestMethod("POST");
 		con.setRequestProperty("Content-Type", "application/json");
-		String beaerToken = OauthUtil.getBearerTokenForPortal();
+		String beaerToken = OauthUtil.getAccessTokenForPortal();
 		System.out.println(beaerToken);
-		con.setRequestProperty ("Authorization", OauthUtil.getBearerTokenForPortal());
+		con.setRequestProperty ("Authorization", OauthUtil.getAccessTokenForPortal());
 		con.setRequestProperty("Accept", "application/json");
 		con.setDoOutput(true);
 		UUID uuid = UUID.randomUUID();
@@ -66,7 +69,7 @@ public class StatusportalGcpPollApplication {
 	}
 
 	private static HttpURLConnection getPollingServices() throws IOException {
-		String urlString = "https://status-api.dev.nav.no/rest/Services";
+		String urlString = portalApiUrl+ "/rest/Services";
 		URL url = new URL(urlString);
 		HttpURLConnection con = (HttpURLConnection) url.openConnection();
 		con.setRequestMethod("GET");
