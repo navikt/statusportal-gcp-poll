@@ -7,7 +7,7 @@ metadata:
     team: navdig
 spec:
   image: {{ image }}
-  schedule: "*/1 * * * *"
+#  schedule: "*/1 * * * *"
   env:
     - name: TENANT
       value: nav.no
