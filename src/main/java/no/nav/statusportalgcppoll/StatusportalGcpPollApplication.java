@@ -23,8 +23,8 @@ public class StatusportalGcpPollApplication {
 
 
 //	static String portalApiUrl = "http://localhost:3005";
-//	static String portalApiUrl =  "http://portalserver";
-	static String portalApiUrl =  "https://status-api.intern.dev.nav.no";
+	static String portalApiUrl =  "http://portalserver";
+//	static String portalApiUrl =  "https://status-api.intern.dev.nav.no";
 
 	public static void main(String[] args) {
 
