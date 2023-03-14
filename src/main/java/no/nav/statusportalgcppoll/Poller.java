@@ -42,7 +42,7 @@ public class Poller {
 
             System.out.println("private void poll Exception!!: " + e);
 
-            return createPolledServiceStatusForUnresponsiveEndpoint();
+            return createPolledServiceStatusForUnresponsiveEndpoint(serviceDto);
 
         }
     }
@@ -106,8 +106,9 @@ public class Poller {
         return content.toString();
     }
 
-    private static RecordDto createPolledServiceStatusForUnresponsiveEndpoint(){
+    private static RecordDto createPolledServiceStatusForUnresponsiveEndpoint(ServiceDto serviceDto){
         return new RecordDto()
+                .serviceId(serviceDto.getId())
                 .description("Service status endpoint is not responding")
                 .status(StatusDto.ISSUE)
                 .timestamp(OffsetDateTime.now());

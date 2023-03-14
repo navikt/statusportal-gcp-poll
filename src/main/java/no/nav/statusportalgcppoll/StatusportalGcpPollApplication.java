@@ -40,7 +40,10 @@ public class StatusportalGcpPollApplication {
 			String body = readBody(con);
 			Gson g = new Gson();
 			List<ServiceDto> services = Arrays.asList(g.fromJson(body, ServiceDto[].class));
-			services = services.stream().filter(s -> s.getPollingUrl() != null && !s.getPollingUrl().equals("")).collect(Collectors.toList());
+			services = services.stream().filter(s -> s.getPollingUrl() != null
+					&& !s.getPollingUrl().equals("")
+					&& !s.getPollingUrl().equals("null"))
+					.collect(Collectors.toList());
 //			services.forEach(s -> s.setPollingUrl("MOCK"));
 			List<RecordDto> recordDtos = services.stream().map(Poller::poll).collect(Collectors.toList());
 			System.out.println(recordDtos);
