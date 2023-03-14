@@ -19,8 +19,8 @@ import java.util.List;
 
 public class Poller {
     //	static String portalApiUrl = "http://localhost:3005";
-//	static String portalApiUrl =  "http://portalserver";
-    static String portalApiUrl =  "https://status-api.intern.dev.nav.no";
+	static String portalApiUrl =  "http://portalserver";
+//    static String portalApiUrl =  "https://status-api.intern.dev.nav.no";
     private static final String MOCK_URL = "https://mockservice.intern.dev.nav.no/mock/Service/";
     private static final  String MOCK = "MOCK";
     private static final  String STATUSHOLDER = "STATUSHOLDER";
