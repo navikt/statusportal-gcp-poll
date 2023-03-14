@@ -13,6 +13,8 @@ spec:
       value: nav.no
     - name: ENV
       value: prod
+    - name: statusholder_url
+      value: https://statusholder.prod-fss-pub.nais.io
   azure:
     application:
       tenant: nav.no
