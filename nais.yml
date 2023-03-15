@@ -15,6 +15,8 @@ spec:
       value: prod
     - name: statusholder_url
       value: https://statusholder.prod-fss-pub.nais.io
+    - name: portalserver_path
+      value: http://portalserver
   azure:
     application:
       tenant: nav.no
