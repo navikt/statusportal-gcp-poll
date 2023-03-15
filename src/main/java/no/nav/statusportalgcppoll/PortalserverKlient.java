@@ -38,7 +38,7 @@ public class PortalserverKlient {
 
 
     private static HttpURLConnection getPollingServicesConnection() throws IOException {
-        String urlString = portalApiUrl+ "/rest/Services/Minimal";
+        String urlString = portalApiUrl+ "/rest/Services/PollingServices";
         URL url = new URL(urlString);
         HttpURLConnection con = (HttpURLConnection) url.openConnection();
         con.setRequestMethod("GET");
