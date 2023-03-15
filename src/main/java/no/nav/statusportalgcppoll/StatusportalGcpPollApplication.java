@@ -17,7 +17,9 @@ public class StatusportalGcpPollApplication {
 		try{
 
 			List<ServiceDto> services = PortalserverKlient.getPollingServices();
+			System.out.println("Fetched " + services.size() +" services from statuplatform");
 			List<RecordDto> recordDtos = services.stream().map(Poller::poll).collect(Collectors.toList());
+			System.out.println("polled " + recordDtos.size() +" records from service endpoints");
 			System.out.println(recordDtos);
 			PortalserverKlient.postStatus(recordDtos);
 		}
