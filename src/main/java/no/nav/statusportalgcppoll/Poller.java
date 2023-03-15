@@ -20,7 +20,7 @@ import java.util.List;
 public class Poller {
     static String portalApiUrl = System.getenv("portalserver_path");
 
-    private static final String MOCK_URL = "https//servicemock/mock/Service/";
+    private static final String MOCK_URL = "http://servicemock/mock/Service/";
     private static final  String MOCK = "MOCK";
     private static final  String STATUSHOLDER = "STATUSHOLDER";
     private static final String STATUSHOLDER_URL = System.getenv("statusholder_url");
