@@ -18,10 +18,9 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Poller {
-    //	static String portalApiUrl = "http://localhost:3005";
-	static String portalApiUrl =  "http://portalserver";
-//    static String portalApiUrl =  "https://status-api.intern.dev.nav.no";
-    private static final String MOCK_URL = "https://mockservice.intern.dev.nav.no/mock/Service/";
+    static String portalApiUrl = System.getenv("portalserver_path");
+
+    private static final String MOCK_URL = "https//servicemock/mock/Service/";
     private static final  String MOCK = "MOCK";
     private static final  String STATUSHOLDER = "STATUSHOLDER";
     private static final String STATUSHOLDER_URL = System.getenv("statusholder_url");
