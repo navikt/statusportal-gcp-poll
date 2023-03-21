@@ -15,14 +15,13 @@ package no.nav.statusportalgcppoll;
 import java.util.Arrays;
 import java.util.List;
 
-/**
-* Gets or Sets Status
-*/
+
 public enum StatusDto {
 
     OK("OK"),
     ISSUE("ISSUE"),
-    DOWN("DOWN");
+    DOWN("DOWN"),
+    UNKNOWN("UNKNOWN");
 
     private String value;
 

@@ -33,8 +33,6 @@ public class Poller {
             Integer responseTime = calcDiffBetween(before,after);
             recordDto.setResponseTime(responseTime);
             return  recordDto;
-            //updateRecordForService(polledServiceStatus,serviceDto, responseTime);
-
         }
 
         catch (Exception e){
@@ -109,7 +107,7 @@ public class Poller {
         return new RecordDto()
                 .serviceId(serviceDto.getId())
                 .description("Service status endpoint is not responding")
-                .status(StatusDto.ISSUE)
+                .status(StatusDto.UNKNOWN)
                 .timestamp(OffsetDateTime.now());
     }
 
