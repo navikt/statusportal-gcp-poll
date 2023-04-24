@@ -19,6 +19,7 @@ import java.util.List;
 public enum StatusDto {
 
     OK("OK"),
+    UP("UP"),
     ISSUE("ISSUE"),
     DOWN("DOWN"),
     UNKNOWN("UNKNOWN");
@@ -39,11 +40,11 @@ public enum StatusDto {
     }
 
     public static List<String> getValues() {
-        return Arrays.asList(new String[] {
-            "OK",
-            "ISSUE",
-            "DOWN",
-        });
+        return Arrays.asList(
+                "OK",
+                "UP",
+                "ISSUE",
+                "DOWN");
     }
 
     public static StatusDto fromValue(String text) {

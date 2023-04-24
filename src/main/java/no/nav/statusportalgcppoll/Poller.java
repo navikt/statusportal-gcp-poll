@@ -1,6 +1,6 @@
 package no.nav.statusportalgcppoll;
 
-import com.google.gson.Gson;
+
 import javax.json.Json;
 import javax.json.JsonObject;
 import javax.json.JsonReader;
@@ -13,9 +13,7 @@ import java.net.URL;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
-import java.time.ZonedDateTime;
-import java.util.Arrays;
-import java.util.List;
+
 
 public class Poller {
     static String portalApiUrl = System.getenv("portalserver_path");
@@ -57,7 +55,8 @@ public class Poller {
 
     private static RecordDto mapToRecordDto(JsonObject jsonRecord){
         RecordDto recordDto = new RecordDto();
-        recordDto.setStatus(StatusDto.fromValue(jsonRecord.getString("status")));
+        StatusDto status = StatusDto.fromValue(jsonRecord.getString("status"));
+        recordDto.setStatus(StatusDto.UP.equals(status)? StatusDto.OK: status);
         recordDto.setDescription(jsonRecord.getString("description",null));
         recordDto.setLogLink(jsonRecord.getString("logglink",null));
         return recordDto;
