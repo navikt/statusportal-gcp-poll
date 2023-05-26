@@ -30,3 +30,4 @@ spec:
       external:
         - host: statusholder.prod-fss-pub.nais.io
         - host: nav.no
+        - host: aareg-status.intern.nav.no
