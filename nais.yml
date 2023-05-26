@@ -29,4 +29,4 @@ spec:
           cluster: prod-gcp
       external:
         - host: statusholder.prod-fss-pub.nais.io
-        - host: nav.no/person/personopplysninger-api/internal/isAlive
+        - host: nav.no
