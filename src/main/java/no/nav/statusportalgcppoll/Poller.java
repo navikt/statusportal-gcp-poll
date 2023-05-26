@@ -35,7 +35,8 @@ public class Poller {
 
         catch (Exception e){
 
-            System.out.println("poll Exception!!: " + e);
+            System.out.println("Poll Exception: " + e);
+
 
             return createPolledServiceStatusForUnresponsiveEndpoint(serviceDto);
 
@@ -71,6 +72,7 @@ public class Poller {
             case STATUSHOLDER: urlString = STATUSHOLDER_URL+"/status/" + serviceDto.getId();break;
             default: urlString = serviceDto.getPollingUrl();
         }
+        System.out.println("Polling url: "+ urlString);
         URL url = new URL(urlString);
         HttpURLConnection con = (HttpURLConnection) url.openConnection();
         con.setRequestMethod("GET");
