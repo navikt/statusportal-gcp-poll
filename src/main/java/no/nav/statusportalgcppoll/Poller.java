@@ -35,7 +35,7 @@ public class Poller {
 
         catch (Exception e){
 
-            System.out.println("private void poll Exception!!: " + e);
+            System.out.println("poll Exception!!: " + e);
 
             return createPolledServiceStatusForUnresponsiveEndpoint(serviceDto);
 
@@ -45,6 +45,7 @@ public class Poller {
     private static RecordDto getPolledServiceStatus(ServiceDto serviceDto) throws IOException {
         HttpURLConnection connection = getConnectionToServicePollEndpoint(serviceDto);
         String bodyString = readBody(connection);
+        System.out.println(bodyString);
         connection.disconnect();
         JsonObject jsonObject = toJson(bodyString);
         RecordDto recordDto = mapToRecordDto(jsonObject);
