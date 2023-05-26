@@ -36,8 +36,7 @@ public class Poller {
         catch (Exception e){
 
             System.out.println("Poll Exception: " + e);
-
-
+            System.out.println("Polling url: "+ serviceDto.getPollingUrl());
             return createPolledServiceStatusForUnresponsiveEndpoint(serviceDto);
 
         }
@@ -46,7 +45,6 @@ public class Poller {
     private static RecordDto getPolledServiceStatus(ServiceDto serviceDto) throws IOException {
         HttpURLConnection connection = getConnectionToServicePollEndpoint(serviceDto);
         String bodyString = readBody(connection);
-        System.out.println(bodyString);
         connection.disconnect();
         JsonObject jsonObject = toJson(bodyString);
         RecordDto recordDto = mapToRecordDto(jsonObject);
@@ -72,7 +70,7 @@ public class Poller {
             case STATUSHOLDER: urlString = STATUSHOLDER_URL+"/status/" + serviceDto.getId();break;
             default: urlString = serviceDto.getPollingUrl();
         }
-        System.out.println("Polling url: "+ urlString);
+        serviceDto.setPollingUrl(urlString);
         URL url = new URL(urlString);
         HttpURLConnection con = (HttpURLConnection) url.openConnection();
         con.setRequestMethod("GET");
