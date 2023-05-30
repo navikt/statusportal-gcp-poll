@@ -35,8 +35,8 @@ public class Poller {
 
         catch (Exception e){
 
-            //System.out.println("Poll Exception: " + e);
-            //System.out.println("Polling url: "+ serviceDto.getPollingUrl());
+            System.out.println("Unresponsive endpoint for service: "+ serviceDto.getId());
+            System.out.println("Polling url: "+ serviceDto.getPollingUrl());
             return createPolledServiceStatusForUnresponsiveEndpoint(serviceDto);
 
         }
