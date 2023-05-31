@@ -32,4 +32,4 @@ spec:
         - host: aareg-status.intern.nav.no
         - host: nav.no
         - host: aa-registeret.nav.no
-        - host: www.nav.no/person/personopplysninger-api/internal
+        - host: nav.no/person/personopplysninger-api/internal
