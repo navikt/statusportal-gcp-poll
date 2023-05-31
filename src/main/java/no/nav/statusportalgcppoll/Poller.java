@@ -37,6 +37,7 @@ public class Poller {
 
             System.out.println("Unresponsive endpoint for service: "+ serviceDto.getId());
             System.out.println("Polling url: "+ serviceDto.getPollingUrl());
+            System.out.println(e.getMessage());
             return createPolledServiceStatusForUnresponsiveEndpoint(serviceDto);
 
         }
