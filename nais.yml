@@ -32,3 +32,4 @@ spec:
         - host: aareg-status.intern.nav.no
         - host: nav.no
         - host: aa-registeret.nav.no
+        - host: farskapsportal-api.intern.nav.no
