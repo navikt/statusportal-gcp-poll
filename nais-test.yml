@@ -27,4 +27,8 @@ spec:
         - application: portalserver
           namespace: navdig
           cluster: dev-gcp
+        - application: servicemock
+          namespace: navdig
+          cluster: dev-gcp
+
 
