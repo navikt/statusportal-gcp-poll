@@ -24,6 +24,8 @@ public class RecordDto {
 
     private StatusDto status = null;
 
+    private RecordSourceDto source = null;
+
     private String description = null;
 
     private String logLink = null;
@@ -31,7 +33,14 @@ public class RecordDto {
     private Integer responseTime = null;
 
 
+    public RecordSourceDto getSource() {
+        return source;
+    }
 
+    public RecordDto setSource(RecordSourceDto source) {
+        this.source = source;
+        return this;
+    }
 
     public OffsetDateTime getTimestamp() {
         return timestamp;
@@ -180,6 +189,8 @@ public class RecordDto {
             writer.value(recordDto.getLogLink());
             writer.name("responseTime");
             writer.value(recordDto.getResponseTime());
+            writer.name("source");
+            writer.value(RecordSourceDto.GCP_POLL.toString());
             writer.endObject();
         }
 
