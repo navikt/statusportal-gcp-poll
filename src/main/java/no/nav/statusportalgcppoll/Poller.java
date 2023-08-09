@@ -60,6 +60,7 @@ public class Poller {
         recordDto.setStatus(StatusDto.UP.equals(status)? StatusDto.OK: status);
         recordDto.setDescription(jsonRecord.getString("description",null));
         recordDto.setLogLink(jsonRecord.getString("logglink",null));
+        recordDto.setSource(RecordSourceDto.GCP_POLL);
         return recordDto;
 
     }
@@ -109,6 +110,7 @@ public class Poller {
                 .serviceId(serviceDto.getId())
                 .description("Service status endpoint is not responding")
                 .status(StatusDto.UNKNOWN)
+                .setSource(RecordSourceDto.GCP_POLL)
                 .timestamp(OffsetDateTime.now());
     }
 
