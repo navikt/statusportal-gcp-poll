@@ -50,7 +50,7 @@ public class Poller {
         JsonObject jsonObject = toJson(bodyString);
         RecordDto recordDto = mapToRecordDto(jsonObject);
         recordDto.setTimestamp(OffsetDateTime.now());
-        RecordSourceDto source = serviceDto.getPollingUrl().startsWith(STATUSHOLDER_URL)? RecordSourceDto.OBM:RecordSourceDto.GCP_POLL;
+        RecordSourceDto source = serviceDto.getPollingUrl().equals(STATUSHOLDER)? RecordSourceDto.OBM:RecordSourceDto.GCP_POLL;
         recordDto.setSource(source);
         recordDto.serviceId(serviceDto.getId());
         return recordDto;
