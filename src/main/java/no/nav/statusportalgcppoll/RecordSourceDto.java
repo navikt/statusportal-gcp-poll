@@ -23,7 +23,8 @@ public enum RecordSourceDto {
     UNKNOWN("UNKNOWN"),
     GCP_POLL("GCP_POLL"),
     ONPREM_POLL("ONPREM_POLL"),
-    PROMETHEUS("PROMETHEUS");
+    PROMETHEUS("PROMETHEUS"),
+    OBM("OBM");
 
     private String value;
 
@@ -42,10 +43,11 @@ public enum RecordSourceDto {
 
     public static List<String> getValues() {
         return Arrays.asList(new String[] {
-            "UNKNOWN",
-            "GCP_POLL",
-            "ONPREM_POLL",
-            "PROMETHEUS",
+                "UNKNOWN",
+                "GCP_POLL",
+                "ONPREM_POLL",
+                "PROMETHEUS",
+                "OBM",
         });
     }
 

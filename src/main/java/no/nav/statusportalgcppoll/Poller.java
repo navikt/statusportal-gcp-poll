@@ -50,6 +50,8 @@ public class Poller {
         JsonObject jsonObject = toJson(bodyString);
         RecordDto recordDto = mapToRecordDto(jsonObject);
         recordDto.setTimestamp(OffsetDateTime.now());
+        RecordSourceDto source = serviceDto.getPollingUrl().startsWith(STATUSHOLDER_URL)? RecordSourceDto.OBM:RecordSourceDto.GCP_POLL;
+        recordDto.setSource(source);
         recordDto.serviceId(serviceDto.getId());
         return recordDto;
     }
@@ -60,7 +62,6 @@ public class Poller {
         recordDto.setStatus(StatusDto.UP.equals(status)? StatusDto.OK: status);
         recordDto.setDescription(jsonRecord.getString("description",null));
         recordDto.setLogLink(jsonRecord.getString("logglink",null));
-        recordDto.setSource(RecordSourceDto.GCP_POLL);
         return recordDto;
 
     }
