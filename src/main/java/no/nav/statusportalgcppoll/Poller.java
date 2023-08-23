@@ -50,11 +50,7 @@ public class Poller {
         JsonObject jsonObject = toJson(bodyString);
         RecordDto recordDto = mapToRecordDto(jsonObject);
         recordDto.setTimestamp(OffsetDateTime.now());
-        if(serviceDto.getId().equals(UUID.fromString("4d4b690b-9402-49a6-a265-256616c2f017"))){
-            System.out.println(serviceDto.getPollingUrl());
-            System.out.println(serviceDto.getPollingUrl().startsWith(STATUSHOLDER_URL));
-        }
-        RecordSourceDto source = serviceDto.getPollingUrl().equals(STATUSHOLDER)? RecordSourceDto.OBM:RecordSourceDto.GCP_POLL;
+        RecordSourceDto source = serviceDto.getPollingUrl().startsWith(STATUSHOLDER_URL)? RecordSourceDto.OBM:RecordSourceDto.GCP_POLL;
         recordDto.setSource(source);
         recordDto.serviceId(serviceDto.getId());
         return recordDto;
@@ -71,9 +67,6 @@ public class Poller {
     }
 
     private static HttpURLConnection getConnectionToServicePollEndpoint(ServiceDto serviceDto) throws IOException {
-        if(serviceDto.getId().equals(UUID.fromString("4d4b690b-9402-49a6-a265-256616c2f017"))){
-            System.out.println(serviceDto.getPollingUrl());
-        }
         String urlString;
         switch (serviceDto.getPollingUrl()){
             case MOCK: urlString = MOCK_URL + serviceDto.getId(); break;
