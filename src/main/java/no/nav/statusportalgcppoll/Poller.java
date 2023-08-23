@@ -13,6 +13,7 @@ import java.net.URL;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
+import java.util.UUID;
 
 
 public class Poller {
@@ -37,7 +38,6 @@ public class Poller {
 
             System.out.println("Unresponsive endpoint for service: "+ serviceDto.getId());
             System.out.println("Polling url: "+ serviceDto.getPollingUrl());
-//            System.out.println(e.getMessage());
             return createPolledServiceStatusForUnresponsiveEndpoint(serviceDto);
 
         }
@@ -50,6 +50,10 @@ public class Poller {
         JsonObject jsonObject = toJson(bodyString);
         RecordDto recordDto = mapToRecordDto(jsonObject);
         recordDto.setTimestamp(OffsetDateTime.now());
+        if(serviceDto.getId().equals(UUID.fromString("4d4b690b-9402-49a6-a265-256616c2f017"))){
+            System.out.println(serviceDto.getPollingUrl());
+            System.out.println(serviceDto.getPollingUrl().equals(STATUSHOLDER));
+        }
         RecordSourceDto source = serviceDto.getPollingUrl().equals(STATUSHOLDER)? RecordSourceDto.OBM:RecordSourceDto.GCP_POLL;
         recordDto.setSource(source);
         recordDto.serviceId(serviceDto.getId());
